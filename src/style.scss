@@ -1,6 +1,213 @@
 
 @use './scss/reset';
+@use './scss/variables' as *;
+
+
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+}
 
 body {
+  background:var(--navy-950);
+  font-family: var(--t-family);
+  color:var(--grey-200);
+  padding: 2rem;
+}
+
+h1, h2, h3 {
+
+}
+
+h1 {
+    font-size: var(--t-1-size);
+    line-height: 1;
+    letter-spacing: var(--t-1-letterSpacing);
+    font-weight: var(--t-weight-light);
+}
+
+img {
+    max-width: 100%;
+}
+
+// Stack
+
+.stack {
+    display: flex;
+    flex-direction: column;
+}
+
+
+// Frame
+
+.frame {
+    min-block-size: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// Grid
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.inline-center {
+    margin-inline: auto;
+}
+
+.rounded {
+    border-radius: 15px;
+}
+
+.subtext {
+    color: var(--navy-200);
+    font-size:1rem;
+    font-weight: 400;
+    line-height: 1;
+}
+
+// Dashboard Begins
+.dashboard {
+    --d-max-width: 69.75rem;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr;
+    max-inline-size: var(--d-max-width, 69.75rem);
+    gap: 2rem;
+
+
+    &__header, &__item {
+        background: var(--navy-900);
+    }
+
+    &__header {
+        overflow: hidden;
+    }
+
+    &__profile {
+        background: var(--purple-600);
+        padding: 2rem 5.3125rem 5.75rem 2rem;
+        .avatar {
+            width: 78px;
+            height: 78px;
+            border: 3px solid var(--white);
+            border-radius: 50%;
+        }
+
+        h1 {
+            color: white;
+            span {
+                display: inline-block;
+            }
+        }
+
+    }
+
+    &__controls {
+        width: 100%;
+        display: flex;
+        justify-content:center;
+        height: 100%;
+
+        button {
+            margin-block-end: 21px;
+            &:last-of-type {
+                margin-block-end: 0;
+            }
+        }
+    }
+}
+
+.card {
+    background: var(--navy-900);
+    color: white;
+    padding-top:45px;
+
+    &--work {
+      background-color: var(--orange-300);
+    }
+    &--play {
+      background-color: var(--blue-300);
+    }
+    &--study {
+        background-color: var(--pink-400);
+    }
+
+    &--exercise {
+        background-color:var(--green-400)
+    }
+    &--social {
+        background-color: var(--purple-700 )
+    }
+
+    &--care {
+        background-color: var(--yellow-300);
+    }
   
+    &__inner {
+      background: var(--navy-900);
+      width:100%;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      height: 100%;
+    }
+  
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+    &__title {
+      font-size: 1.2rem;
+    }
+  
+    &__menu-button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+    }
+  
+    &__stats {
+      display: none;
+  
+      &[data-range="daily"].is-active,
+      &[data-range="weekly"].is-active,
+      &[data-range="monthly"].is-active {
+        display: block;
+      }
+    }
+  
+    &__stat {
+      font-size: 1rem;
+  
+      &--current {
+        font-size: 2rem;
+      }
+  
+      &--previous {
+        opacity: 0.6;
+      }
+    }
+  }
+
+.cushion-2 {
+    padding: 2rem;
+}
+
+@media (min-width: 600px) {
+    .dashboard {
+    }
+}
+
+@media (min-width: 960px) {
+    .dashboard {
+        grid-template-columns: min(225px, 33%) 1fr;
+    }
 }

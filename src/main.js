@@ -30,6 +30,38 @@ async function fetchData(url) {
 
 
 function renderCards(cards) {
+
+
+    let cardElements = [];
+
+    cards.forEach((card) => {
+      let statsMarkup = '';
+    
+      // Loop over each timeframe key and values (e.g. daily, weekly, monthly)
+      Object.entries(card.timeframes).forEach(([range, values]) => {
+        statsMarkup += `
+          <div class="card__stats" data-range="${range}">
+            <p class="card__stat card__stat--current">${values.current}hrs</p>
+            <p class="card__stat card__stat--previous">Previous - ${values.previous}hrs</p>
+          </div>
+        `;
+      });
+    
+      cardElements.push(`
+        <article class="card dashboard__item rounded card--${card.title.toLowerCase()}">
+          <div class="card__inner cushion-2">
+            <div class="card__header">
+              <h3 class="card__title">${card.title}</h3>
+              <button class="card__menu-button" aria-label="Options">...</button>
+            </div>
+            ${statsMarkup}
+          </div>
+        </article>
+      `);
+    });
+    
+    // Optionally inject into DOM
+    document.querySelector('.dashboard__grid').innerHTML = cardElements.join('');
     cards.forEach((card) => console.log(card));
 }
 
