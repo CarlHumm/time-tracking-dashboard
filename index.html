@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | Time tracking dashboard</title>
+</head>
+<body>
+<main>
+<section class="dashboard">
+  <header class="dashboard__header stack">
+    <div class="dashboard-profile__content">
+      <img src="./images/image-jeremy.png" alt="avatar">
+      <h1><span>Report for</span>
+      Jeremy Robson</h1>
+    </div>
+    <nav class="dashboard__controls stack"  aria-label="View options">
+      <button type="button" class="control-button" aria-pressed="true" data-range="daily">Daily</button>
+      <button type="button" class="control-button" aria-pressed="false" data-range="weekly">Weekly</button>
+      <button type="button" class="control-button" aria-pressed="false" data-range="monthly">Monthly</button>
+    </nav>
+  </header>
+  <section class="dashboard__content  grid">
+
+    <!-- WORK -->
+    <article class="dashboard__item">
+      <div class="card__inner">
+        <div class="card__header">
+          <h3>Work</h3>
+          <button>...</button>
+        </div>
+        <div class="stats" data-range="daily">
+          <p class="stats__current">5hrs</p>
+          <p class="stats__previous">Previous - 7hrs</p>  
+        </div>
+        <div class="stats" data-range="weekly">
+          <p class="stats__current">32hrs</p>
+          <p class="stats__previous">Previous - 36hrs</p>  
+        </div>
+        <div class="stats" data-range="monthly">
+          <p class="stats__current">103hrs</p>
+          <p class="stats__previous">Previous - 128hrs</p>  
+        </div>
+    </div>
+    </article>
+
+    <!-- PLAY -->
+    <article class="dashboard__item">
+      <div class="card__inner">
+        <div class="card__header">
+          <h3>Play</h3>
+          <button>...</button>
+        </div>
+        <div class="stats" data-range="daily">
+          <p class="stats__current">1hrs</p>
+          <p class="stats__previous">Previous - 2hrs</p>  
+        </div>
+        <div class="stats" data-range="weekly">
+          <p class="stats__current">10hrs</p>
+          <p class="stats__previous">Previous - 8hrs</p>  
+        </div>
+        <div class="stats" data-range="monthly">
+          <p class="stats__current">23hrs</p>
+          <p class="stats__previous">Previous - 29hrs</p>  
+        </div>
+    </div>
+    </article>
+
+    <!-- STUDY -->
+    <article class="dashboard__item">
+      <div class="card__inner">
+        <div class="card__header">
+          <h3>Study</h3>
+          <button>...</button>
+        </div>
+        <div class="stats" data-range="daily">
+          <p class="stats__current">0hrs</p>
+          <p class="stats__previous">Previous - 1hrs</p>  
+        </div>
+        <div class="stats" data-range="weekly">
+          <p class="stats__current">7hrs</p>
+          <p class="stats__previous">Previous - 8hrs</p>  
+        </div>
+        <div class="stats" data-range="monthly">
+          <p class="stats__current">13hrs</p>
+          <p class="stats__previous">Previous - 19hrs</p>  
+        </div>
+    </div>
+    </article>
+
+    <!-- EXERCISE -->
+    <article class="dashboard__item">
+      <div class="card__inner">
+        <div class="card__header">
+          <h3>Exercise</h3>
+          <button>...</button>
+        </div>
+        <div class="stats" data-range="daily">
+          <p class="stats__current">1hrs</p>
+          <p class="stats__previous">Previous - 1hrs</p>  
+        </div>
+        <div class="stats" data-range="weekly">
+          <p class="stats__current">4hrs</p>
+          <p class="stats__previous">Previous - 5hrs</p>  
+        </div>
+        <div class="stats" data-range="monthly">
+          <p class="stats__current">11hrs</p>
+          <p class="stats__previous">Previous - 18hrs</p>  
+        </div>
+    </div>
+    </article>
+
+    <!-- SOCIAL -->
+    <article class="dashboard__item">
+      <div class="card__inner">
+        <div class="card__header">
+          <h3>Social</h3>
+          <button>...</button>
+        </div>
+        <div class="stats" data-range="daily">
+          <p class="stats__current">1hrs</p>
+          <p class="stats__previous">Previous - 3hrs</p>  
+        </div>
+        <div class="stats" data-range="weekly">
+          <p class="stats__current">5hrs</p>
+          <p class="stats__previous">Previous - 10hrs</p>  
+        </div>
+        <div class="stats" data-range="monthly">
+          <p class="stats__current">21hrs</p>
+          <p class="stats__previous">Previous - 23hrs</p>  
+        </div>
+    </div>
+    </article>
+
+    
+    <!-- SELF-CARE -->
+    <article class="dashboard__item">
+      <div class="card__inner">
+        <div class="card__header">
+          <h3>Self Care</h3>
+          <button>...</button>
+        </div>
+        <div class="stats" data-range="daily">
+          <p class="stats__current">0hrs</p>
+          <p class="stats__previous">Previous - 1hrs</p>  
+        </div>
+        <div class="stats" data-range="weekly">
+          <p class="stats__current">2hrs</p>
+          <p class="stats__previous">Previous - 2hrs</p>  
+        </div>
+        <div class="stats" data-range="monthly">
+          <p class="stats__current">7hrs</p>
+          <p class="stats__previous">Previous - 11hrs</p>  
+        </div>
+    </div>
+    </article>
+  </section>
+</section>
+</main>
+<div class="attribution">
+  Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+  Coded by <a href="#">Carl Humm</a>.
+</div>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
