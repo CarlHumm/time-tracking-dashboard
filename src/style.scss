@@ -174,14 +174,8 @@ img {
       font-size: 1.5rem;
     }
   
-    &__stats {
+    &__stats:not([data-range="daily"]) {
       display: none;
-  
-      &[data-range="daily"].is-active,
-      &[data-range="weekly"].is-active,
-      &[data-range="monthly"].is-active {
-        display: block;
-      }
     }
   
     &__stat {
