@@ -2,7 +2,7 @@ import './style.scss';
 
 window.addEventListener('DOMContentLoaded', async (e) => {
    
-    const cards = await fetchData('./data.json');
+   const cards = await fetchData('./data.json');
 
    if(!cards) {
     console.error(cards.Error);
@@ -28,17 +28,14 @@ async function fetchData(url) {
 
 }
 
-
 function renderCards(cards) {
-
 
     let cardElements = [];
 
     cards.forEach((card) => {
       let statsMarkup = '';
-    
-      // Loop over each timeframe key and values (e.g. daily, weekly, monthly)
-      Object.entries(card.timeframes).forEach(([range, values]) => {
+
+          Object.entries(card.timeframes).forEach(([range, values]) => {
         statsMarkup += `
           <div class="card__stats" data-range="${range}">
             <p class="card__stat card__stat--current">${values.current}hrs</p>
@@ -60,7 +57,6 @@ function renderCards(cards) {
       `);
     });
     
-    // Optionally inject into DOM
     document.querySelector('.dashboard__grid').innerHTML = cardElements.join('');
     cards.forEach((card) => console.log(card));
 }
