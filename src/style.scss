@@ -16,6 +16,8 @@ body {
   padding: 2rem;
 }
 
+
+
 h1, h2, h3 {
 
 }
@@ -66,9 +68,10 @@ img {
 
 .subtext {
     color: var(--navy-200);
-    font-size:1rem;
+    font-size:15px;
     font-weight: 400;
-    line-height: 1;
+    line-height: 18px;
+    margin-block-start:8px;
 }
 
 // Dashboard Begins
@@ -80,6 +83,8 @@ img {
     max-inline-size: var(--d-max-width, 69.75rem);
     gap: 2rem;
 
+    @include medium {
+    }
 
     &__header, &__item {
         background: var(--navy-900);
@@ -91,8 +96,23 @@ img {
     }
 
     &__profile {
+        width: 100%;
+        display: flex;
+        flex-direction:column;
         background: var(--purple-600);
-        padding: 2rem 5.3125rem 5.75rem 2rem;
+        gap: 2.5rem;
+        padding:2rem;
+
+        @include medium {
+            flex-direction: row;
+            align-items:center;
+        }
+
+        @include large {
+            flex-direction: column;
+            align-items:start;
+            padding: 2rem 5.3125rem 5.75rem 2rem;
+        }
         .avatar {
             width: 78px;
             height: 78px;
@@ -102,8 +122,10 @@ img {
 
         h1 {
             color: white;
+            margin-block:0;
+            line-height:47px;
             span {
-                display: inline-block;
+                display: block;
             }
         }
 
@@ -116,7 +138,7 @@ img {
         margin-inline: auto;
         display: flex;
         align-items:start;
-        justify-content:center;
+        justify-content: space-between;
 
         @include large {
             flex-direction: column;
@@ -125,7 +147,14 @@ img {
 
 
         button {
+        cursor:pointer;
+        font-size: 18px;
+        line-height:21px;
+        color:var(--purple-500);
 
+        &[aria-pressed="true"] {
+            color: var(--white);
+        }
         @include large {
             margin-block-end: 21px;
             &:last-of-type {
@@ -137,39 +166,79 @@ img {
     }
 }
 
+@mixin circle {
+    width: 5px;
+    height: 5px;
+    display: inline-block;
+    background: var(--navy-200);
+    border-radius:50%;
+  }
+  
+
 .card {
+    position:relative;
     background: var(--navy-900);
     color: white;
     padding-top:45px;
+    overflow: hidden;
 
-
-    &--work {
-      background: url('../images/icon-work.svg') var(--orange-300) no-repeat right top;
-    }
-    &--play {
-      background: url('../images/icon-play.svg') var(--blue-300) no-repeat right top;
-    }
-    &--study {
-      background: url('../images/icon-study.svg') var(--pink-400) no-repeat right top;
+    &:hover, &:focus-visible {
+        .card__inner {
+            background-color: var(--navy-800);
+        }
     }
 
-    &--exercise {
-      background: url('../images/icon-exercise.svg') var(--green-400) no-repeat right top;
+    &--work > &__background {
+      background-color: var(--orange-300);
+      background-image: url('../images/icon-work.svg');
     }
-    &--social {
-        background: url('../images/icon-social.svg') var(--purple-700) no-repeat right top;
+    &--play > &__background {
+      background-color: var(--blue-300);
+      background-image: url('../images/icon-play.svg');
+    }
+    &--study > &__background {
+      background-color: var(--pink-400);
+      background-image: url('../images/icon-study.svg');
     }
 
-    &--self-care {
-        background: url('../images/icon-self-care.svg') var(--yellow-300) no-repeat right top;
+    &--exercise > &__background {
+      background-color: var(--green-400);
+      background-image: url('../images/icon-exercise.svg');
+    }
+    &--social > &__background {
+        background-color: var(--purple-700);
+        background-image: url('../images/icon-social.svg');
+    }
+
+    &--self-care > &__background {
+        background-color: var(--yellow-300);
+        background-image: url('../images/icon-self-care.svg');
     }
   
+
+    &__background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background-repeat: no-repeat;
+        background-position: top right 20px;
+      }
+
+
     &__inner {
+      position: relative;
       background: var(--navy-900);
       width:100%;
       padding: 1rem;
-      border-radius: 0.5rem;
       height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      z-index: 1;
     }
   
     &__header {
@@ -179,27 +248,33 @@ img {
     }
   
     &__title {
-      font-size: 1.2rem;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 21px;
     }
   
     &__menu-button {
+      position: relative;
+      padding: 0.55rem;
       background: none;
+      display: flex;
       border: none;
-      color: white;
-      font-size: 1.5rem;
-    }
+      color: var(--navy-200);
+      font-size: 1rem;
+        &:hover, &:focus-visible {
+            cursor:pointer;
+        }
+      }
+
   
     &__stats {
-        display: flex;
+        display: none;
         align-items:center;
         justify-content:space-between;
         @include medium {
             flex-direction: column;
             align-items:start;
         }
-        &:not([data-range="daily"]) {
-        display: none;
-      }
     }
   
     &__stat {
@@ -207,15 +282,24 @@ img {
   
       &--current {
         font-size: 2rem;
+        @include medium {
+            font-size: 56px;
+            font-weight: 200;
+            line-height: 66px;
+        }
       }
   
       &--previous {
-        opacity: 0.6;
+        color: var(--navy-200);
+        font-size:15px;
+        font-weight: 400;
+        line-height: 18px;
+        margin-block-start:8px;
       }
     }
   }
 
-.cushion-2 {
+  .cushion-2 {
     padding: 2rem;
 }
 
@@ -228,4 +312,9 @@ img {
     .dashboard {
         grid-template-columns: min(225px, 33%) 1fr;
     }
+}
+
+
+.show {
+    display: flex;
 }
