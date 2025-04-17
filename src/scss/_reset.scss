@@ -74,3 +74,9 @@ textarea:not([rows]) {
   scroll-margin-block: 5ex;
 }
 
+
+button {
+  border: 0;
+  background:transparent;
+  color: inherit;
+}

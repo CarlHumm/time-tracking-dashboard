@@ -43,9 +43,9 @@ function renderCards(cards) {
           </div>
         `;
       });
-    
+
       cardElements.push(`
-        <article class="card dashboard__item rounded card--${card.title.toLowerCase()}">
+        <article class="card dashboard__item rounded card--${formatSpaces(card.title)}">
           <div class="card__inner cushion-2">
             <div class="card__header">
               <h3 class="card__title">${card.title}</h3>
@@ -62,8 +62,9 @@ function renderCards(cards) {
 }
 
 
-
-
+function formatSpaces(str) {
+  return str.replace(/\s+/g, '-').toLowerCase()
+}
 
 
 
