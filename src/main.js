@@ -21,7 +21,7 @@ function setupButtons() {
   buttons.forEach(btn =>
     btn.addEventListener('click', (e) => {
       const range = e.target.dataset.range;
-
+      const stats = document.querySelectorAll('.card__stats');
       localStorage.setItem('rangeSelection', range);
 
       if (e.target.getAttribute('aria-pressed') === 'true') return;
@@ -29,13 +29,29 @@ function setupButtons() {
       document.querySelector('[aria-pressed="true"]').setAttribute('aria-pressed', false);
       e.target.setAttribute('aria-pressed', true);
 
-      document.querySelectorAll('.card__stats').forEach(async function(stat) {
+      stats.forEach(async function(stat) {
         let isSelectedStat= stat.dataset.range === range;
-        
-        await delay(3000);
-
-        stat.classList.toggle('show', isSelectedStat);
+          animateChangeStats(stat, isSelectedStat);
       });
     })
   );
+}
+
+
+async function animateChangeStats(stat, selected) {
+  
+if(selected) {
+  stat.classList.add('show');
+  stat.classList.add('animate-in');
+  stat.classList.remove('animate-out');
+  await delay(1000);
+}
+else {
+  stat.classList.add("animate-out");
+  stat.classList.remove("animate-in");
+  await delay(1000);
+  stat.classList.remove('show');
+}
+  
+
 }

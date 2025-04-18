@@ -268,6 +268,10 @@ img {
 
   
     &__stats {
+        position:relative;
+        opacity: 0;
+        transform:scale(0).4;
+        transform-origin: left;
         display: none;
         align-items:center;
         justify-content:space-between;
@@ -317,4 +321,40 @@ img {
 
 .show {
     display: flex;
+}
+
+.animate-in {
+    position:relative;
+    animation: animIn 1000ms ease-in-out forwards;
+    animation-delay:0.45s;
+}
+
+.animate-out { 
+    position:absolute;
+    animation: animOut 1000ms ease-in-out forwards;
+}
+
+@keyframes animIn {
+    0%{ 
+        opacity: 0;
+        transform:translateY(-50%) scale(0.4);
+    }
+
+    100% {
+        transform:scale(1);
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes animOut {
+    0%{ 
+        opacity: 1;
+        transform:translateY(50%) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform:translateY(100%) scale(0.4);
+    }
 }
