@@ -324,13 +324,13 @@ img {
 
 .animate-in {
     position:relative;
-    animation: animIn 1000ms ease-in-out forwards;
+    animation: animIn 450ms ease-in-out forwards;
     animation-delay:0.45s;
 }
 
 .animate-out { 
     position:absolute;
-    animation: animOut 1000ms ease-in-out forwards;
+    animation: animOut 450ms ease-in-out forwards;
 }
 
 @keyframes animIn {

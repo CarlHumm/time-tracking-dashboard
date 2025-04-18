@@ -2,7 +2,10 @@ import './style.scss';
 import { fetchData } from './js/fetchData.js';
 import { renderCards } from './js/render.js';
 import { getSelectedRange } from './js/getRange.js';
-import { delay } from './js/delay.js';
+import { delay, debounceClick, isAnimating } from './js/limiters.js';
+
+
+isAnimating;
 
 window.addEventListener('DOMContentLoaded', async () => {
   const cards = await fetchData('./data.json');
@@ -14,12 +17,14 @@ window.addEventListener('DOMContentLoaded', async () => {
 });
 
 function setupButtons() {
+
   const buttons = document.querySelectorAll('.dashboard__control-button');
 
   document.querySelector(`[data-range=${getSelectedRange()}]`).setAttribute('aria-pressed', true);
 
   buttons.forEach(btn =>
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener('click', debounceClick((e) => {
+        
       const range = e.target.dataset.range;
       const stats = document.querySelectorAll('.card__stats');
       localStorage.setItem('rangeSelection', range);
@@ -34,7 +39,7 @@ function setupButtons() {
           animateChangeStats(stat, isSelectedStat);
       });
     })
-  );
+  ));
 }
 
 
@@ -44,14 +49,12 @@ if(selected) {
   stat.classList.add('show');
   stat.classList.add('animate-in');
   stat.classList.remove('animate-out');
-  await delay(1000);
+  await delay(450);
 }
 else {
   stat.classList.add("animate-out");
   stat.classList.remove("animate-in");
-  await delay(1000);
+  await delay(450);
   stat.classList.remove('show');
 }
-  
-
 }
