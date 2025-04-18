@@ -14,7 +14,7 @@ import { formatSpaces } from "./formatSpaces";
     const title = formatSpaces(card.title);
     return `
       <article class="card dashboard__item rounded card--${title}">
-        <div class="card__background"></div>
+        <div class="card__background" aria-hidden="true"></div>
         <div class="card__inner rounded cushion-2">
           <div class="card__header">
             <h3 class="card__title">${card.title}</h3>
