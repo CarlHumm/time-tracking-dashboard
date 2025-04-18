@@ -150,6 +150,7 @@ img {
         cursor:pointer;
         font-size: 18px;
         line-height:21px;
+        transition: 0.25s ease-in-out;
         color:var(--purple-500);
 
         &[aria-pressed="true"] {
@@ -335,11 +336,13 @@ img {
 
 @keyframes animIn {
     0%{ 
+        filter: blur(15px);
         opacity: 0;
         transform:translateY(-50%) scale(0.4);
     }
 
     100% {
+        filter:blur(0);
         transform:scale(1);
         opacity: 1;
         transform: translateY(0) scale(1);
@@ -348,11 +351,13 @@ img {
 
 @keyframes animOut {
     0%{ 
+        filter:blur(0);
         opacity: 1;
         transform:translateY(50%) scale(1);
     }
 
     100% {
+        filter: blur(15px);
         opacity: 0;
         transform:translateY(100%) scale(0.4);
     }
