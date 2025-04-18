@@ -23,25 +23,25 @@ function setupButtons() {
   document.querySelector(`[data-range=${getSelectedRange()}]`).setAttribute('aria-pressed', true);
 
   buttons.forEach(btn =>
-    btn.addEventListener('click', debounceClick((e) => {
-        
-      const range = e.target.dataset.range;
-      const stats = document.querySelectorAll('.card__stats');
-      localStorage.setItem('rangeSelection', range);
-
-      if (e.target.getAttribute('aria-pressed') === 'true') return;
-
-      document.querySelector('[aria-pressed="true"]').setAttribute('aria-pressed', false);
-      e.target.setAttribute('aria-pressed', true);
-
-      stats.forEach(async function(stat) {
-        let isSelectedStat= stat.dataset.range === range;
-          animateChangeStats(stat, isSelectedStat);
-      });
-    })
+    btn.addEventListener('click', debounceClick(toggleData)
   ));
 }
 
+function toggleData(e) {   
+    const range = e.target.dataset.range;
+    const stats = document.querySelectorAll('.card__stats');
+    localStorage.setItem('rangeSelection', range);
+
+    if (e.target.getAttribute('aria-pressed') === 'true') return;
+
+    document.querySelector('[aria-pressed="true"]').setAttribute('aria-pressed', false);
+    e.target.setAttribute('aria-pressed', true);
+
+    stats.forEach(async function(stat) {
+      let isSelectedStat= stat.dataset.range === range;
+        animateChangeStats(stat, isSelectedStat);
+  });
+}
 
 async function animateChangeStats(stat, selected) {
   
@@ -58,3 +58,5 @@ else {
   stat.classList.remove('show');
 }
 }
+
+
