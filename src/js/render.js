@@ -3,7 +3,7 @@ import { formatSpaces } from "./formatSpaces";
 
   function generateStatsHTML(timeframes) {
     return Object.entries(timeframes).map(([range, { current, previous }]) => `
-      <div class="card__stats ${range === getSelectedRange() ? 'show' : ''}" data-range="${range}">
+      <div class="card__stats ${range === getSelectedRange() ? 'show animate-in' : ''}" data-range="${range}">
         <p class="card__stat card__stat--current">${current}hrs</p>
         <p class="card__stat card__stat--previous">${getLabel(range)} - ${previous}hrs</p>
       </div>
