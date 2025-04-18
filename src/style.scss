@@ -13,7 +13,7 @@ body {
   background:var(--navy-950);
   font-family: var(--t-family);
   color:var(--grey-200);
-  padding: 2rem;
+  padding: 1.5rem;;
 }
 
 
@@ -55,7 +55,10 @@ img {
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+    gap: 1.5rem;
+    @include large {
+        gap: 2rem;
+    }
 }
 
 .inline-center {
@@ -81,13 +84,17 @@ img {
     width: 100%;
     grid-template-columns: 1fr;
     max-inline-size: var(--d-max-width, 69.75rem);
-    gap: 2rem;
+    gap: 1.5rem;
 
-    @include medium {
+    @include large {
+        gap: 2rem;
     }
 
     &__header {
         background: var(--navy-900);
+        @include large {
+            align-self: start;
+        }
     }
 
     &__header {
@@ -98,10 +105,10 @@ img {
     &__profile {
         width: 100%;
         display: flex;
-        flex-direction:column;
         background: var(--purple-600);
-        gap: 2.5rem;
+        gap: 1.5rem;
         padding:2rem;
+        align-items:center;
 
         @include medium {
             flex-direction: row;
@@ -111,21 +118,35 @@ img {
         @include large {
             flex-direction: column;
             align-items:start;
-            padding: 2rem 5.3125rem 5.75rem 2rem;
+            padding-inline: 2rem;
+            padding-block-start: 2rem;
+            padding-block-end:  5.75rem;
         }
+        
         .avatar {
-            width: 78px;
-            height: 78px;
+            width: 64px;
+            height: 64px;
             border: 3px solid var(--white);
             border-radius: 50%;
+            @include large {
+                width: 78px;
+                height: 78px;
+            }
         }
 
         h1 {
             color: white;
             margin-block:0;
-            line-height:47px;
+            line-height:28px;
+            font-size:24px;
+            @include large {
+                font-size: 40px;
+                line-height: 47px;
+            }
             span {
                 display: block;
+                margin-block-start: 0;
+                margin-block-end: 8px;
             }
         }
 
@@ -134,6 +155,7 @@ img {
     &__controls {
         width: 100%;
         height: 100%;
+        padding: 25px;
         max-width:343px;
         margin-inline: auto;
         display: flex;
@@ -246,7 +268,7 @@ img {
       position: relative;
       background: var(--navy-900);
       width:100%;
-      padding: 1rem;
+      padding: 25px;
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -286,11 +308,12 @@ img {
     &__stats {
         position:relative;
         opacity: 0;
-        transform-origin: left;
+        transform-origin: top;
         display: none;
         align-items:center;
         justify-content:space-between;
         @include medium {
+            transform-origin: left;
             flex-direction: column;
             align-items:start;
         }
@@ -301,6 +324,8 @@ img {
   
       &--current {
         font-size: 2rem;
+        line-height:38px;
+        font-weight: 200;
         @include medium {
             font-size: 56px;
             font-weight: 200;
@@ -318,10 +343,6 @@ img {
     }
   }
 
-  .cushion-2 {
-    padding: 2rem;
-}
-
 @media (min-width: 600px) {
     .dashboard {
     }
@@ -329,7 +350,7 @@ img {
 
 @media (min-width: 960px) {
     .dashboard {
-        grid-template-columns: min(225px, 33%) 1fr;
+        grid-template-columns: min(255px, 33%) 1fr;
     }
 }
 
