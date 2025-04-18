@@ -1,3 +1,5 @@
+@use './queries' as *;
+
 :root {
 
   ///////////////////////
@@ -29,12 +31,44 @@
 /////////////////////////////
 
     --t-family: 'Rubik';
+
     --t-weight-light: 200;
     --t-weight-medium: 500;
     --t-weight-regular: 400;
+    --t-weight-bold: 600;
 
-    --t-1-lineHeight: 66px;
-    --t-1-size: 40px;
-    --t-1-letterSpacing: 0px;
+    --t-title-size: 1.5rem;
+    --t-title-lh: 66px;
+    --t-title-ls: 0px;
+
+    --t-subtext-size: 0.9375rem;
+    --t-subtext-lh: 18px;
+
+    --t-stat-large-size: 40px;
+    --t-stat-large-lh: 38px;
+
+    --t-stat-size: 1rem;
+    --t-stat-lh: 47px;
+
+    --t-cta-size: 1.125rem;
+    --t-cta-lh: 21px;
+
+    --radius: 0.9375rem;
+
+
+    @include medium {
+      --t-stat-large-size: 56px;
+      --t-stat-large-lh: 66px;
+  }
+
+    @include large {
+      --t-title-size: 2rem;
+      --t-title-lh: 47px;
+    }
+
+    
+
 
 }
+
+

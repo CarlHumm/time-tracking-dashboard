@@ -66,20 +66,21 @@ img {
 }
 
 .rounded {
-    border-radius: 15px;
+    border-radius: var(--radius);
 }
 
 .subtext {
     color: var(--navy-200);
-    font-size:15px;
-    font-weight: 400;
-    line-height: 18px;
+    font-size: var(--t-subtext-size);
+    font-weight: var(--t-weight-regular);
+    line-height: var(--t-subtext-lh);
     margin-block-start:8px;
 }
 
 // Dashboard Begins
 .dashboard {
     --d-max-width: 69.75rem;
+
     display: grid;
     width: 100%;
     grid-template-columns: 1fr;
@@ -124,24 +125,23 @@ img {
         }
         
         .avatar {
-            width: 64px;
-            height: 64px;
+            width: 4rem;
+            height: 4rem;
             border: 3px solid var(--white);
             border-radius: 50%;
             @include large {
-                width: 78px;
-                height: 78px;
+                width: 4.875rem;
+                height: 4.875rem;
             }
         }
 
         h1 {
             color: white;
             margin-block:0;
-            line-height:28px;
-            font-size:24px;
+            line-height: 1.75;
+            font-size:var(--t-title-size);
             @include large {
-                font-size: 40px;
-                line-height: 47px;
+                line-height: var(--t-title-lh);
             }
             span {
                 display: block;
@@ -155,8 +155,8 @@ img {
     &__controls {
         width: 100%;
         height: 100%;
-        padding: 25px;
-        max-width:343px;
+        padding: 1.5625rem;
+        max-width:21.4375rem;
         margin-inline: auto;
         display: flex;
         align-items:start;
@@ -170,8 +170,8 @@ img {
 
         button {
         cursor:pointer;
-        font-size: 18px;
-        line-height:21px;
+        font-size: var(--t-cta-size);
+        line-height:var(--t-cta-lh);
         transition: 0.25s ease-in-out;
         color:var(--purple-500);
 
@@ -179,7 +179,7 @@ img {
             color: var(--white);
         }
         @include large {
-            margin-block-end: 21px;
+            margin-block-end: 1.3125rem;
             &:last-of-type {
                 margin-block-end: 0;
             }
@@ -189,19 +189,10 @@ img {
     }
 }
 
-@mixin circle {
-    width: 5px;
-    height: 5px;
-    display: inline-block;
-    background: var(--navy-200);
-    border-radius:50%;
-  }
-  
-
 .card {
     position:relative;
     color: white;
-    padding-top:45px;
+    padding-top:2.8125rem;
     overflow: hidden;
     transform:scale(0);
     transform-origin:center;
@@ -255,12 +246,12 @@ img {
         right: 0;
         transform:translateY(100%);
         height: 60px;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
+        border-top-left-radius: var(--radius);
+        border-top-right-radius: var(--radius);
         background-repeat: no-repeat;
         animation: animUp 0.45s ease-in-out forwards;
         transform-origin:left;
-        background-position: top right 20px;
+        background-position: top right 1.25rem;
       }
 
 
@@ -268,13 +259,13 @@ img {
       position: relative;
       background: var(--navy-900);
       width:100%;
-      padding: 25px;
+      padding: 1.5625rem;
       height: 100%;
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
+      border-top-left-radius: var(--radius);
+      border-top-right-radius: var(--radius);
       z-index: 1;
 
     }
@@ -286,9 +277,9 @@ img {
     }
   
     &__title {
-      font-size: 18px;
-      font-weight: 500;
-      line-height: 21px;
+      font-size: var(--t-cta-size);
+      font-weight: var(--t-weight-medium);
+      line-height: var(--t-cta-lh);
     }
   
     &__menu-button {
@@ -320,17 +311,12 @@ img {
     }
   
     &__stat {
-      font-size: 1rem;
+      font-size: var(--t-start-size);
   
       &--current {
-        font-size: 2rem;
-        line-height:38px;
-        font-weight: 200;
-        @include medium {
-            font-size: 56px;
-            font-weight: 200;
-            line-height: 66px;
-        }
+        font-size: var(--t-stat-large-size);
+        line-height:var(--t-stat-large-lh);
+        font-weight: var(--t-weight-light);
       }
   
       &--previous {
@@ -343,10 +329,6 @@ img {
     }
   }
 
-@media (min-width: 600px) {
-    .dashboard {
-    }
-}
 
 @media (min-width: 960px) {
     .dashboard {
