@@ -17,11 +17,6 @@ body {
 }
 
 
-
-h1, h2, h3 {
-
-}
-
 h1 {
     font-size: var(--t-1-size);
     line-height: 1;
@@ -48,6 +43,8 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    gap:3rem;
 }
 
 // Grid
