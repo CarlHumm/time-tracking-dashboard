@@ -1,7 +1,8 @@
 import './style.scss';
-import { fetchData } from './fetchData.js';
-import { renderCards } from './render.js';
-import { getSelectedRange } from './getRange.js';
+import { fetchData } from './js/fetchData.js';
+import { renderCards } from './js/render.js';
+import { getSelectedRange } from './js/getRange.js';
+import { delay } from './js/delay.js';
 
 window.addEventListener('DOMContentLoaded', async () => {
   const cards = await fetchData('./data.json');
@@ -28,8 +29,12 @@ function setupButtons() {
       document.querySelector('[aria-pressed="true"]').setAttribute('aria-pressed', false);
       e.target.setAttribute('aria-pressed', true);
 
-      document.querySelectorAll('.card__stats').forEach(stat => {
-        stat.classList.toggle('show', stat.dataset.range === range);
+      document.querySelectorAll('.card__stats').forEach(async function(stat) {
+        let isSelectedStat= stat.dataset.range === range;
+        
+        await delay(3000);
+
+        stat.classList.toggle('show', isSelectedStat);
       });
     })
   );
